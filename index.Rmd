@@ -1,0 +1,25 @@
+---
+title: "Developing Data Products- Leaflet"
+author: "Kailash Natarajan"
+date: "05/07/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+I have created this on 05/07/2020 (DD/MM/YYYY format).
+Two months from the given date is 05/09/2020.
+You can find a handful of famous malls in Chennai from the below map.
+```{r}
+library(leaflet)
+malls<-data.frame(
+lat=c(13.074025,13.048546,13.058922,12.990333,13.080492),
+lng=c(80.221378, 80.207501, 80.263586, 80.217041, 80.197053),
+places=c(" Ampa Skywalk Mall","Forum Mall","Express Avenue Mall","Phoenix Market City","VR Mall")
+)
+myplot = leaflet(malls) %>%
+           addTiles %>%
+              addMarkers(popup=~places)
+myplot
+```
